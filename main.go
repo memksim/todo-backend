@@ -1,12 +1,12 @@
 package main
 
-import (
-	"github.com/memksim/todo-backend/internal/http"
-)
+import "github.com/memksim/todo-backend/internal/api"
 
 func main() {
-	err := http.SetupRouter()
+	router := api.SetupRouter()
+
+	err := router.Run(":8080")
 	if err != nil {
-		panic(err)
+		return
 	}
 }
